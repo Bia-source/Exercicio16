@@ -10,7 +10,8 @@ public class Curso {
     private Integer curso;
     private ProfessoresTitulares professorTitular;
     private ProfessoresAdjuntos professoresAdjuntos;
-    private Integer quantidadeMax;
+    private Integer quantidadeMax = 2;
+    private boolean permissao;
 
     // inserindo get e set Tipos de professores
     public ProfessoresTitulares getProfessorTitular() {
@@ -69,5 +70,23 @@ public class Curso {
                 curso.equals(curso1.curso);
     }
 
+    //criando um método para adicionar aluno a lista
+
+
+    public boolean adicionarAluno (Aluno umAluno){
+        if (quantidadeAlunos.size() < quantidadeMax){
+            quantidadeAlunos.add(umAluno);
+            return true;
+        }else{
+            System.out.println("Permissão negada");
+        }
+      return false;
+    }
+
+    public void excluirAluno (Aluno umAluno){
+        quantidadeAlunos.remove(umAluno);
+    }
+
+    
 
 }
