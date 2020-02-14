@@ -7,10 +7,14 @@ import java.util.Objects;
 
 public class Curso {
     private String nome;
-    private Integer curso;
+    private Integer codigoDoCurso;
     private ProfessoresTitulares professorTitular;
     private ProfessoresAdjuntos professoresAdjuntos;
-    private Integer quantidadeMax = 2;
+    private Integer quantidadeMax;
+    //criando listas de quantidade de alunos matriculados
+    private List<Aluno> alunosMatriculados = new ArrayList<>();
+
+
     private boolean permissao;
 
     // inserindo get e set Tipos de professores
@@ -30,15 +34,21 @@ public class Curso {
         this.professoresAdjuntos = professoresAdjuntos;
     }
 
-    //criando listas de quantidade de alunos e alunos matriculados
-    List<Aluno> quantidadeAlunos = new ArrayList<>();
-    List<Aluno> alunosMatriculados = new ArrayList<>();
+    public Integer getCodigoDoCurso() {
+        return codigoDoCurso;
+    }
+
+    public void setCodigoDoCurso(Integer codigoDoCurso) {
+        this.codigoDoCurso = codigoDoCurso;
+    }
+
 
     //criando um método contrutor para a classe curso
 
-    public Curso(String nome, Integer curso) {
+    public Curso(String nome, Integer curso, Integer quantidadeMax) {
         this.nome = nome;
-        this.curso = curso;
+        this.codigoDoCurso = curso;
+        this.quantidadeMax = quantidadeMax;
     }
 
     //criando um get/set para os atributos da classe nome e curso
@@ -52,11 +62,11 @@ public class Curso {
     }
 
     public Integer getCurso() {
-        return curso;
+        return codigoDoCurso;
     }
 
     public void setCurso(Integer curso) {
-        this.curso = curso;
+        this.codigoDoCurso = curso;
     }
 
     //sobrescrevendo o método equals para comparar o valor do curso
@@ -67,15 +77,15 @@ public class Curso {
         if (o == null || getClass() != o.getClass()) return false;
         Curso curso1 = (Curso) o;
         return Objects.equals(nome, curso1.nome) &&
-                curso.equals(curso1.curso);
+                codigoDoCurso.equals(curso1.codigoDoCurso);
     }
 
     //criando um método para adicionar aluno a lista
 
 
     public boolean adicionarAluno (Aluno umAluno){
-        if (quantidadeAlunos.size() < quantidadeMax){
-            quantidadeAlunos.add(umAluno);
+        if (alunosMatriculados.size() < quantidadeMax){
+            alunosMatriculados.add(umAluno);
             return true;
         }else{
             System.out.println("Permissão negada");
@@ -84,9 +94,9 @@ public class Curso {
     }
 
     public void excluirAluno (Aluno umAluno){
-        quantidadeAlunos.remove(umAluno);
+        alunosMatriculados.remove(umAluno);
     }
 
-    
+
 
 }

@@ -13,6 +13,7 @@ public class Matricula {
         this.dataMatricula = new Date();
     }
 
+    public Matricula() {
 
-
+    }
 }

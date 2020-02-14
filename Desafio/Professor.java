@@ -5,9 +5,9 @@ import java.util.Objects;
 public class Professor {
     private String nome;
     private String sobreNome;
-    private Integer tempoDeCasa;
+    private Integer tempoDeCasa = 0;
     private Integer codigoDeProfessor;
-
+    private String especialidade;
     //criando contrutor para a classe professor
 
     public Professor(String nome, String sobreNome, Integer tempoDeCasa, Integer codigoDeProfessor) {
@@ -16,6 +16,26 @@ public class Professor {
         this.tempoDeCasa = tempoDeCasa;
         this.codigoDeProfessor = codigoDeProfessor;
     }
+
+    public Professor(String nome, String sobreNome, Integer codigoDeProfessor) {
+        this.nome = nome;
+        this.sobreNome = sobreNome;
+        this.codigoDeProfessor = codigoDeProfessor;
+    }
+
+    public Professor(String nome, String sobreNome, Integer codigoDeProfessor, String especialidade) {
+        this.nome = nome;
+        this.sobreNome = sobreNome;
+        this.codigoDeProfessor = codigoDeProfessor;
+        this.especialidade = especialidade;
+    }
+
+    /* public ProfessoresAdjuntos(String nome, String sobreNome, Integer codigoDeProfessor){
+        this.nome = nome;
+        this.sobreNome = sobreNome;
+        this.codigoDeProfessor = codigoDeProfessor;
+    }
+   */
 
     /*fazendo get/set para inserir os valores e pegar o nome, sobreNome, tempoDeCasa, codigoDoProfessor
     para quando chamadas as funções devido ao private */
