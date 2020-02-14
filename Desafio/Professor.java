@@ -8,6 +8,8 @@ public class Professor {
     private Integer tempoDeCasa;
     private Integer codigoDeProfessor;
 
+    //criando contrutor para a classe professor
+
     public Professor(String nome, String sobreNome, Integer tempoDeCasa, Integer codigoDeProfessor) {
         this.nome = nome;
         this.sobreNome = sobreNome;
@@ -15,6 +17,8 @@ public class Professor {
         this.codigoDeProfessor = codigoDeProfessor;
     }
 
+    /*fazendo get/set para inserir os valores e pegar o nome, sobreNome, tempoDeCasa, codigoDoProfessor
+    para quando chamadas as funções devido ao private */
     public String getNome() {
         return nome;
     }
@@ -47,6 +51,7 @@ public class Professor {
         this.codigoDeProfessor = codigoDeProfessor;
     }
 
+    //comparando se o codigo dos professores é igual ou nao
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -55,8 +60,4 @@ public class Professor {
         return codigoDeProfessor.equals(professor.codigoDeProfessor);
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(codigoDeProfessor);
-    }
 }
